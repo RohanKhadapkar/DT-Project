@@ -10,7 +10,8 @@
 </head>
 <body>
 
-	<form:form action="saveproduct" method="post" modelAttribute="product">
+	<form:form action="saveproduct" method="post" modelAttribute="product"
+		enctype="multipart/form-data">
 		<form:hidden path="id" />
 
 Enter Product Name<form:input path="productName" />
@@ -23,6 +24,10 @@ Enter Description<form:input path="description" />
 		<br>
 		<input type="submit" value="Add Product">
 	</form:form>
+
+	<div class="form-group">
+		Upload an image <input type="file" name="image">
+	</div>
 
 
 </body>

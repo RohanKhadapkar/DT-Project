@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.ProductDao;
+import com.niit.model.Category;
 import com.niit.model.Product;
 @Service
 @Transactional
@@ -39,5 +40,9 @@ public class ProductServiceImpl implements ProductService {
 	public void updateProduct(Product product) {
 		productDao.editProduct(product);
 
+	}
+	public List<Category> getAllCategories()
+	{
+		return productDao.getAllCategories();
 	}
 }

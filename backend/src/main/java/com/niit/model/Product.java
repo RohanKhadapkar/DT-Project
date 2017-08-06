@@ -1,19 +1,48 @@
 package com.niit.model;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	@NotEmpty(message="Product name cannot be blank")
 	private String productName;
+	@Min(value=50)
 	private double price;
 	private int quantity;
+	@NotEmpty(message="Product description cannot be blank")
 	private String description;
+	@ManyToOne
+	@JoinColumn(name="cid")
+	private Category category;
+	@Transient //it will not get persisted
+	private MultipartFile image;
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}
