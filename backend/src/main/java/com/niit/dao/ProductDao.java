@@ -1,12 +1,11 @@
 package com.niit.dao;
 
-import java.util.List;
-
 import com.niit.model.Category;
 import com.niit.model.Product;
+import java.util.List;
+
 
 public interface ProductDao {
-
 	void saveProduct(Product product);
 	List<Product> getAllProducts();
 	Product getProductById(int id);

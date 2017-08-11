@@ -9,26 +9,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<form:form action="saveproduct" method="post" modelAttribute="product"
-		enctype="multipart/form-data">
-		<form:hidden path="id" />
-
-Enter Product Name<form:input path="productName" />
-		<br>
-Enter Price<form:input path="price" />
-		<br>
-Enter Quantity<form:input path="quantity" />
-		<br>
-Enter Description<form:input path="description" />
-		<br>
-		<input type="submit" value="Add Product">
-	</form:form>
-
+<form:form action="saveproduct" method="post" modelAttribute="product"
+	enctype="multipart/form-data">
 	<div class="form-group">
-		Upload an image <input type="file" name="image">
+		<form:hidden path="id" class="form-control" />
+		<div>
+			<div class="form-group">
+				Enter Product Name
+				<form:input path="productName" class="form-control" />
+			</div>
+			<br>
+			<div class="form-group">
+				Enter Price
+				<form:input path="price" class="form-control" />
+			</div>
+			<br>
+			<div class="form-group">
+				Enter Quantity
+				<form:input path="quantity" class="form-control" />
+			</div>
+			<br>
+			<div class="form-group">
+				Enter Description
+				<form:textarea path="description" class="form-control" />
+			</div>
+			<br>
+			<div class="form-group">
+				Select Category
+				<form:select path="category.id">
+					<c:forEach items="${categories }" var="c">
+						<form:option value="${c.id }">${c.categoryName }</form:option>
+					</c:forEach>
+				</form:select>
+			</div>
+			<div class="form-group">
+				Upload an Image <input type="file" name="image">
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Add Product">
+			</div>
+		</div>
 	</div>
-
-
-</body>
+</form:form>
 </html>
