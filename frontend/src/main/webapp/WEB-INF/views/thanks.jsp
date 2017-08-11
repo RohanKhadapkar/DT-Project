@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>Thanks for buying</h2>
 </body>
 </html>
